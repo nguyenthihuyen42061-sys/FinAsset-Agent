@@ -1,0 +1,15 @@
+# 统计学与金融工程计算底座
+numpy>=1.24.0
+scipy>=1.11.0
+pandas>=2.0.0
+
+# 大模型与有环多智能体状态机
+langgraph>=0.2.0
+langchain-core>=0.3.0
+langchain-openai>=0.2.0
+pydantic>=2.0.0
+python-dotenv>=1.0.0
+
+# 交互式资产管理看板与金融图表
+streamlit>=1.30.0
+plotly>=5.9.0
