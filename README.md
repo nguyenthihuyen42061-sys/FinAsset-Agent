@@ -141,7 +141,7 @@ python run_cli.py
 
 ### 4. 启动 Web 机构级资产管理终端
 ```bash
-streamlit run app.py
+python -m streamlit run app.py
 ```
 > 系统内置双模机制：在未配置 API Key 时自动启用**本地金融工程级确定性渲染引擎**，百分之百保证稳定运行与图表交互；配置 Key 后可联动大模型生成更加生动的投决叙事。
 
