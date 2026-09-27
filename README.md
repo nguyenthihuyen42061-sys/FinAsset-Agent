@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
 > **面向证券、财富管理与基金资产管理领域的机构级开源多智能体投决系统。**  
-> 模拟买方机构（公募基金/券商资管）投委会决策流，依托 **LangGraph** 构建包含 **Supervisor 主管、研报投研员、量化工程师、独立风控官与资管投资经理** 的有向有环博弈拓扑（Cyclic Multi-Agent Graph）。系统融合**金融垂直校正性 RAG (CRAG)** 与统计学皇冠级 **Black-Litterman 贝叶斯资产配置模型**，并引入蒙特卡洛压力测试与风控一票否决反思闭环。
+> 模拟买方机构（公募基金/券商资管）投委会决策流，依托 **LangGraph** 构建包含 **Supervisor 主管、研报投研员、量化工程师、独立风控官与资管投资经理** 的有向有环博弈拓扑（Cyclic Multi-Agent Graph）。系统融合**金融垂直校正性 RAG (CRAG)** 与统计学 **Black-Litterman 贝叶斯资产配置模型**，并引入蒙特卡洛压力测试与风控一票否决反思闭环。
 
 ---
 

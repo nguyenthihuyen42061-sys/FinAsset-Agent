@@ -112,17 +112,31 @@ $$E(R) = \\left[ (\\tau \\Sigma)^{{-1}} + P^T \\Omega^{{-1}} P \\right]^{{-1}} \
 
 def generate_investment_memo(state: Dict[str, Any]) -> str:
     """根据配置调用大模型或输出高质量离线备忘录"""
-    if not OPENAI_API_KEY:
+    import os
+    from src import config
+
+    api_key = config.OPENAI_API_KEY or OPENAI_API_KEY
+    base_url = config.OPENAI_BASE_URL or OPENAI_BASE_URL
+    model_name = config.MODEL_NAME or MODEL_NAME
+
+    if not api_key:
         return generate_offline_memo(state)
 
     try:
+        # 针对国内模型 (如 DeepSeek)，自动将域名加入 NO_PROXY，避免被本地 SOCKS 代理阻断
+        if "deepseek" in base_url.lower():
+            current_np = os.environ.get("NO_PROXY", "")
+            if "deepseek.com" not in current_np:
+                os.environ["NO_PROXY"] = (current_np + ",api.deepseek.com,deepseek.com").strip(",")
+                os.environ["no_proxy"] = os.environ["NO_PROXY"]
+
         from langchain_openai import ChatOpenAI
         from langchain_core.messages import SystemMessage, HumanMessage
 
         llm = ChatOpenAI(
-            model=MODEL_NAME,
-            api_key=OPENAI_API_KEY,
-            base_url=OPENAI_BASE_URL,
+            model=model_name,
+            api_key=api_key,
+            base_url=base_url,
             temperature=0.3
         )
 
